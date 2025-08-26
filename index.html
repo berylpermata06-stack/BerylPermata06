@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portal Warga - Cluster Beryl Permata</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main { max-width: 1100px; margin: 28px auto; padding: 0 18px; }
+    iframe { width: 100%; height: 600px; border: none; }
+    .section-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero & Navbar -->
+  <header class="hero">
+    <nav class="topbar">
+      <a class="active" href="#" onclick="loadPage('home', this)">Home</a>
+      <a href="#" onclick="loadPage('laporan', this)">Laporan Keuangan</a>
+      <a href="#" onclick="loadPage('kegiatan', this)">Kegiatan Warga</a>
+      <a href="#" onclick="loadPage('kontak', this)">Kontak & Informasi</a>
+      <a href="#" onclick="loadPage('emergency', this)">Emergency Call</a>
+    </nav>
+    <div class="hero-inner" id="hero-content">
+      <h1>Selamat Datang di Portal Warga<br>Cluster Beryl Permata</h1>
+      <p>Portal Warga untuk informasi, kegiatan, dan laporan keuangan</p>
+    </div>
+  </header>
+
+  <!-- Konten yang berubah -->
+  <main id="content">
+    <!-- default halaman home akan dimuat di sini -->
+  </main>
+
+  <footer class="footer">
+    Cluster Beryl Permata Tangerang • Telp: <strong>0819-xxxx-xxxx</strong>
+  </footer>
+
+  <script>
+    async function loadPage(page, el){
+      // ubah aktif menu
+      document.querySelectorAll('.topbar a').forEach(a => a.classList.remove('active'));
+      if(el) el.classList.add('active');
+
+      // ambil isi halaman
+      const res = await fetch("pages/" + page + ".html");
+      const html = await res.text();
+      document.getElementById("content").innerHTML = html;
+
+      // ubah hero title sesuai halaman
+      const hero = document.getElementById("hero-content");
+      if(page === "home"){
+        hero.innerHTML = `<h1>Selamat Datang di Portal Warga<br>Cluster Beryl Permata</h1>
+                          <p>Portal Warga untuk informasi, kegiatan, dan laporan keuangan</p>`;
+      } else if(page === "laporan"){
+        hero.innerHTML = `<h1>Laporan Keuangan</h1><p>Transparansi iuran warga</p>`;
+      } else if(page === "kegiatan"){
+        hero.innerHTML = `<h1>Kegiatan Warga</h1><p>Agenda & dokumentasi kegiatan</p>`;
+      } else if(page === "kontak"){
+        hero.innerHTML = `<h1>Kontak & Informasi</h1><p>Hubungi pengurus atau layanan warga</p>`;
+      } else if(page === "emergency"){
+        hero.innerHTML = `<h1>Emergency Call</h1><p>Nomor penting & darurat</p>`;
+      }
+    }
+
+    // load default home saat pertama buka
+    loadPage('home');
+  </script>
+</body>
+</html>
