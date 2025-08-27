@@ -15,7 +15,7 @@ html,body{
 /* Top Bar */
 .top-bar {
   display: flex;
-  flex-wrap: wrap;   /* supaya turun ke bawah kalau layar sempit */
+  flex-wrap: wrap;
   justify-content: center;
   background: rgba(60, 0, 100, 0.85);
   padding: 8px;
@@ -23,11 +23,11 @@ html,body{
 
 .top-bar a {
   margin: 4px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 15px;
   transition: background 0.3s ease;
   white-space: nowrap; /* biar teks tidak pecah */
 }
@@ -37,14 +37,14 @@ html,body{
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Mobile tweak */
+/* Mobile (HP) */
 @media (max-width: 768px) {
   .top-bar {
-    flex-direction: column;   /* di HP jadi kolom */
+    flex-direction: column;   /* jadi vertikal di HP */
     align-items: center;
   }
   .top-bar a {
-    width: 100%;
+    width: 100%;              /* full width biar gampang klik */
     text-align: center;
   }
 }
