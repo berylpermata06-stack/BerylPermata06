@@ -96,14 +96,13 @@ html,body{
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive iframe (better for mobile) */
+/* Responsive iframe base */
 .responsive-iframe {
   position: relative;
   width: 100%;
-  padding-bottom: 65%; /* rasio tinggi, bisa 56% utk video 16:9 */
   height: 0;
   overflow: hidden;
-  border-radius: 12px; /* opsional */
+  border-radius: 12px;
 }
 .responsive-iframe iframe {
   position: absolute;
@@ -111,3 +110,8 @@ html,body{
   width: 100%; height: 100%;
   border: none;
 }
+
+/* Variasi ratio */
+.responsive-iframe.sheets { padding-bottom: 120%; }
+.responsive-iframe.calendar { padding-bottom: 80%; }
+.responsive-iframe.video { padding-bottom: 56.25%; } /* 16:9 */
