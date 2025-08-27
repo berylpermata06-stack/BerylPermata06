@@ -43,13 +43,7 @@
       // ambil isi halaman
       const res = await fetch("pages/" + page + ".html");
       const html = await res.text();
-      const content = document.getElementById("content");
-
-      // tambahkan animasi fade-in
-      content.classList.remove("fade-in");
-      content.innerHTML = html;
-      void content.offsetWidth; // trik reset animasi
-      content.classList.add("fade-in");
+      document.getElementById("content").innerHTML = html;
 
       // ubah hero title sesuai halaman
       const hero = document.getElementById("hero-content");
@@ -57,4 +51,18 @@
         hero.innerHTML = `<h1>Selamat Datang di Portal Warga<br>Cluster Beryl Permata</h1>
                           <p>Portal Warga untuk informasi, kegiatan, dan laporan keuangan</p>`;
       } else if(page === "laporan"){
-        hero.innerHTML = `
+        hero.innerHTML = `<h1>Laporan Keuangan</h1><p>Transparansi iuran warga</p>`;
+      } else if(page === "kegiatan"){
+        hero.innerHTML = `<h1>Kegiatan Warga</h1><p>Agenda & dokumentasi kegiatan</p>`;
+      } else if(page === "kontak"){
+        hero.innerHTML = `<h1>Kontak & Informasi</h1><p>Hubungi pengurus atau layanan warga</p>`;
+      } else if(page === "emergency"){
+        hero.innerHTML = `<h1>Emergency Call</h1><p>Nomor penting & darurat</p>`;
+      }
+    }
+
+    // load default home saat pertama buka
+    loadPage('home');
+  </script>
+</body>
+</html>
