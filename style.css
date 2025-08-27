@@ -12,28 +12,41 @@ html,body{
   line-height:1.6;
 }
 
-/* Topbar */
-.topbar{
-  position:absolute; top:18px; left:50%; transform:translateX(-50%);
-  display:flex; gap:8px; z-index:6; padding:0 8px;
+/* Top Bar */
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;   /* supaya turun ke bawah kalau layar sempit */
+  justify-content: center;
+  background: rgba(60, 0, 100, 0.85);
+  padding: 8px;
 }
-.topbar a{
-  color:#fff; text-decoration:none; font-weight:700;
-  font-size:14px; padding:8px 14px; border-radius:999px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.08);
-  transition:all 0.2s ease;
+
+.top-bar a {
+  margin: 4px;
+  padding: 8px 12px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background 0.3s ease;
+  white-space: nowrap; /* biar teks tidak pecah */
 }
-.topbar a:hover{
-  background:rgba(255,255,255,0.18);
+
+.top-bar a:hover,
+.top-bar a:focus {
+  background: rgba(255, 255, 255, 0.2);
 }
-.topbar a.active{
-  background:linear-gradient(90deg,var(--purple),var(--orange));
-  border-color:transparent;
-}
-.topbar a:focus{
-  outline:2px solid var(--orange);
-  outline-offset:2px;
+
+/* Mobile tweak */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;   /* di HP jadi kolom */
+    align-items: center;
+  }
+  .top-bar a {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Hero */
