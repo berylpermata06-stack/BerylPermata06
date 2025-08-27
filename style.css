@@ -96,8 +96,18 @@ html,body{
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive iframe height */
-iframe{width:100%; height:400px; border:none;}
-@media (min-width:768px){
-  iframe{height:600px;}
+/* Responsive iframe (better for mobile) */
+.responsive-iframe {
+  position: relative;
+  width: 100%;
+  padding-bottom: 65%; /* rasio tinggi, bisa 56% utk video 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px; /* opsional */
+}
+.responsive-iframe iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
 }
