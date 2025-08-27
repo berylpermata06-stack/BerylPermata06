@@ -9,7 +9,33 @@
     main { max-width: 1100px; margin: 28px auto; padding: 0 18px; }
   </style>
 </head>
-  <script>
+
+<body>
+  <!-- Hero & Navbar -->
+  <header class="hero">
+    <nav class="topbar">
+      <a class="active" href="#" onclick="loadPage('home', this)">Home</a>
+      <a href="#" onclick="loadPage('laporan', this)">Laporan Keuangan</a>
+      <a href="#" onclick="loadPage('kegiatan', this)">Kegiatan Warga</a>
+      <a href="#" onclick="loadPage('kontak', this)">Kontak & Informasi</a>
+      <a href="#" onclick="loadPage('emergency', this)">Emergency Call</a>
+    </nav>
+    <div class="hero-inner" id="hero-content">
+      <h1>Selamat Datang di Portal Warga<br>Cluster Beryl Permata</h1>
+      <p>Portal Warga untuk informasi, kegiatan, dan laporan keuangan</p>
+    </div>
+  </header>
+
+  <!-- Konten yang berubah -->
+  <main id="content">
+    <!-- default halaman home akan dimuat di sini -->
+  </main>
+
+  <footer class="footer">
+    Cluster Beryl Permata Tangerang • Telp: <strong>0819-xxxx-xxxx</strong>
+  </footer>
+
+    <script>
     async function loadPage(page, el){
       // ubah aktif menu
       document.querySelectorAll('.topbar a').forEach(a => a.classList.remove('active'));
@@ -39,30 +65,6 @@
     // load default home saat pertama buka
     loadPage('home');
   </script>
-<body>
-  <!-- Hero & Navbar -->
-  <header class="hero">
-    <nav class="topbar">
-      <a class="active" href="#" onclick="loadPage('home', this)">Home</a>
-      <a href="#" onclick="loadPage('laporan', this)">Laporan Keuangan</a>
-      <a href="#" onclick="loadPage('kegiatan', this)">Kegiatan Warga</a>
-      <a href="#" onclick="loadPage('kontak', this)">Kontak & Informasi</a>
-      <a href="#" onclick="loadPage('emergency', this)">Emergency Call</a>
-    </nav>
-    <div class="hero-inner" id="hero-content">
-      <h1>Selamat Datang di Portal Warga<br>Cluster Beryl Permata</h1>
-      <p>Portal Warga untuk informasi, kegiatan, dan laporan keuangan</p>
-    </div>
-  </header>
-
-  <!-- Konten yang berubah -->
-  <main id="content">
-    <!-- default halaman home akan dimuat di sini -->
-  </main>
-
-  <footer class="footer">
-    Cluster Beryl Permata Tangerang • Telp: <strong>0819-xxxx-xxxx</strong>
-  </footer>
-
+  
 </body>
 </html>
